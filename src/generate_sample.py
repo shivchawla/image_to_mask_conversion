@@ -21,7 +21,7 @@ def generate_grid_image(image_size, min_grid_size, max_grid_size, image_path, ma
             grid_width = random.randint(min_grid_size, max_grid_size)
             color = random_color()
             draw_image.rectangle([x, y, x + grid_width, y + grid_height], fill=color)
-            draw_mask.rectangle([x, y, x + grid_width, y + grid_height], outline=1, fill=255)
+            draw_mask.rectangle([x, y, min(x + grid_width, image_size-1), min(y + grid_height, image_size-1)], outline=255, fill=0)
             x += grid_width
         y += grid_height
 
@@ -32,9 +32,9 @@ def generate_grid_image(image_size, min_grid_size, max_grid_size, image_path, ma
     mask.save(os.path.join(mask_path, mask_filename))
 
 # Parameters
-image_sizes = [256, 512, 768, 1024]  # Sizes of the images (256x256, 512x512, 768x768, 1024x1024)
+image_sizes = [256] #, 512, 768, 1024]  # Sizes of the images (256x256, 512x512, 768x768, 1024x1024)
 num_images_per_size = 10  # Number of images to generate for each size
-num_images = 500  # Number of images to generate
+num_images = 2000  # Number of images to generate
 
 # Directory to save images and masks
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data'))

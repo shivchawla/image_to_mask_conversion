@@ -21,7 +21,7 @@ class GridDataset(Dataset):
         img_path = os.path.join(self.image_dir, img_name)
         mask_path = os.path.join(self.mask_dir, img_name.replace('.png', '_mask.png'))
 
-        print(f"Loading image: {img_path}, mask: {mask_path}")
+        # print(f"Loading image: {img_path}, mask: {mask_path}")
 
         image = Image.open(img_path).convert("RGB")
         mask = Image.open(mask_path).convert("L")  # Convert to grayscale
@@ -39,7 +39,6 @@ def get_train_loader(subset=False):
         transforms.RandomHorizontalFlip(),
         transforms.RandomVerticalFlip(),
         transforms.RandomRotation(30),
-        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
         transforms.ToTensor(),
     ])
     # Data path

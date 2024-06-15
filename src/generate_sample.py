@@ -36,7 +36,7 @@ image_sizes = [256, 512, 768, 1024]  # Sizes of the images (256x256, 512x512, 76
 num_images_per_size = 10  # Number of images to generate for each size
 num_images = 500  # Number of images to generate
 
-# save_path = '../data/generated_grids'  # Directory to save images and masks
+# Directory to save images and masks
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data'))
 
 # Now you can use data_dir to access files within data directory

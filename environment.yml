@@ -1,0 +1,11 @@
+name: image-to-mask
+channels:
+  - defaults
+dependencies:
+  - python=3.12.2
+  - pip
+  - numpy
+  - matplotlib
+  - opencv
+  - torchvision
+  - pytorch
